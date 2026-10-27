@@ -1,5 +1,36 @@
 # Changelog
 
+## [0.3.286](https://github.com/UKGovernmentBEIS/inspect_ai/compare/0.3.285...0.3.286) (2026-10-27)
+
+
+### ⚠ BREAKING CHANGES
+
+* recomputing, editing or recovering a log no longer imports files or builds models it names ([#6007](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6007))
+
+### Features
+
+* **openai:** support GPT-6.1 Terra ([#6100](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6100)) ([f7f3681](https://github.com/UKGovernmentBEIS/inspect_ai/commit/f7f36818b2340d0fd3e9386d1fa48fbddfd451b9))
+
+
+### Bug Fixes
+
+* caches set never to expire no longer read back from logs as expiring after a week ([#6088](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6088)) ([05fc2c6](https://github.com/UKGovernmentBEIS/inspect_ai/commit/05fc2c610c560509105bba3b59d81f70985bcaa9))
+* eval-set cache overrides set never to expire no longer run with a one-week expiry ([#6097](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6097)) ([eaeeab4](https://github.com/UKGovernmentBEIS/inspect_ai/commit/eaeeab4dd71044cab6f3388fb7a1b6c8f2e2ed8f))
+* read_eval_log_samples() missing samples added at runtime by a SampleSource ([#6076](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6076)) ([71e00d2](https://github.com/UKGovernmentBEIS/inspect_ai/commit/71e00d28fc675a752891f559081926aaed4b0c80))
+* recomputing, editing or recovering a log no longer imports files or builds models it names ([#6007](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6007)) ([eabac22](https://github.com/UKGovernmentBEIS/inspect_ai/commit/eabac22136d8d06dca10eb423c624bc565ce38ab))
+* Responses streaming through the sandbox model proxy fails with openai-python 3.31+ ([#6058](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6058)) ([b0b294b](https://github.com/UKGovernmentBEIS/inspect_ai/commit/b0b294b62c258ef561b8a64f7b4e57329a4b5dc3))
+* sandbox events from other tasks no longer dropped while one task suppresses its own ([#6044](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6044)) ([3e3994f](https://github.com/UKGovernmentBEIS/inspect_ai/commit/3e3994f055bc6194c78c3517e506e5e473189c35))
+* score edits that clear a field to None no longer read back as "UNCHANGED" ([#6063](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6063)) ([c91bc27](https://github.com/UKGovernmentBEIS/inspect_ai/commit/c91bc27d550bdd4980892e763aa16f55f70ade87))
+* streamed log convert and score drop reductions from .json logs ([#6075](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6075)) ([571fc47](https://github.com/UKGovernmentBEIS/inspect_ai/commit/571fc4724a489054f3a6f8091449ae6c694bc8b9))
+* task and sample errors lose the exception they were raised while handling ([#6023](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6023)) ([c2d5566](https://github.com/UKGovernmentBEIS/inspect_ai/commit/c2d55669484a4e6b1debfaae44fa1a4eb9e91972))
+* tool approval seeing unvalidated or differently converted arguments ([#5652](https://github.com/UKGovernmentBEIS/inspect_ai/issues/5652)) ([4f00890](https://github.com/UKGovernmentBEIS/inspect_ai/commit/4f008905c9a203ef1dfab0ce99c7beb77ec07e7b))
+* truncated logs that read as empty now raise an error ([#6086](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6086)) ([ace82fe](https://github.com/UKGovernmentBEIS/inspect_ai/commit/ace82fe881919f61797b4068ea921ddd60a45caa))
+
+
+### Performance Improvements
+
+* log flushes to S3 upload only the samples written since the last flush, not the whole `.eval` file ([#6025](https://github.com/UKGovernmentBEIS/inspect_ai/issues/6025)) ([6e61a68](https://github.com/UKGovernmentBEIS/inspect_ai/commit/6e61a683d31373a3ecaecd52eefc059681f4d14e))
+
 ## [0.3.285](https://github.com/UKGovernmentBEIS/inspect_ai/compare/0.3.284...0.3.285) (2026-10-25)
 
 
